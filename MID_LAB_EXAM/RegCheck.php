@@ -4,7 +4,7 @@
      $Id = $_POST['id'];
      $Password = $_POST['password'];
     
-        if(empty($_POST['id']) || empty($_POST['password']) || empty($_POST['name']) || empty($_POST['usertype']) ){
+        if(empty($_POST['id']) || empty($_POST['password']) || empty($_POST['repass']) || empty($_POST['name']) || empty($_POST['usertype']) ){
             echo"Plaese fill out all the field";
         }
         else{
@@ -19,7 +19,10 @@
                 $password=$_POST['password'];
                 $repass=$_POST['repass'];
                 $name = $_POST['name'];
-                $type=$_POST['type'];
+                $type=$_POST['usertype'];
 
                 $user=['id'=> $id, 'password'=> $password, 'name' => $name, 'type' => $type ];
+                if ($password!=$repass) {
+                    echo"please check your password and confirm password";
+                }
         ?>
